@@ -13,7 +13,7 @@
 - Clone the github repository and cd into the Laravel folder. 
 - Run `composer install` to install all the required dependencies.
 - Run `php artisan key:generate`
-- Go into the laravel folder and find the file called .env.example, change its name to .env
+- Go into the laravel folder and find the file called .env.example, copy and paste it under the same folder, change the name to .env
 - Run `php artisan serve`
 
 ## About Laravel
