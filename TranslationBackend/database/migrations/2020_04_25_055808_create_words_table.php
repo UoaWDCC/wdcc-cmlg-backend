@@ -19,11 +19,17 @@ class CreateWordsTable extends Migration
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('translation_id');
             $table->timestamps();
-           
-            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
-            $table->foreign('translation_id')->references('id')->on('translations')->onDelete('cascade');
-        });
 
+            $table->foreign('language_id')
+                ->references('id')
+                ->on('languages')
+                ->onDelete('cascade');
+
+            $table->foreign('translation_id')
+                ->references('id')
+                ->on('translations')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -33,6 +39,6 @@ class CreateWordsTable extends Migration
      */
     public function down()
     {
-        Schema:dropIfExists('words');
+        Schema::dropIfExists('words');
     }
 }
