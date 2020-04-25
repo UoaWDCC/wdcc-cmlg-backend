@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## To run this project 
+
+- Follow the Laravel install guide to get required apps downloaded. 
+- Clone the github repository and cd into the Laravel folder. 
+- Run `composer install` to install all the required dependencies.
+- Run `php artisan key:generate`
+- Go into the laravel folder and find the file called .env.example, change its name to .env
+- Run `php artisan serve`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
