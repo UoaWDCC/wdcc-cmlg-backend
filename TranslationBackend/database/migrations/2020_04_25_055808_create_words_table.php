@@ -20,6 +20,7 @@ class CreateWordsTable extends Migration
             $table->unsignedBigInteger('translation_id');
             $table->timestamps();
 
+            $table->unique(['language_id','translation_id']); //TBT
             $table->foreign('language_id')
                 ->references('id')
                 ->on('languages')
