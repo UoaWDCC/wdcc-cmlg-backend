@@ -39,7 +39,7 @@ class WordController extends Controller
      * @param  \App\Word  $word
 //     * @return \Illuminate\Http\Response
      */
-    public function show($word)
+    public function show($word = null)
     {
         $words = new Word();
         return $words->search($word);
