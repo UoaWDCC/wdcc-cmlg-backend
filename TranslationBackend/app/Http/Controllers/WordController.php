@@ -37,11 +37,12 @@ class WordController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Word  $word
-     * @return \Illuminate\Http\Response
+//     * @return \Illuminate\Http\Response
      */
-    public function show(Word $word)
+    public function show($word)
     {
-
+        $words = new Word();
+        return $words->search($word);
     }
 
     /**
