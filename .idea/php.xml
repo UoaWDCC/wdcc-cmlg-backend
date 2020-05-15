@@ -95,6 +95,10 @@
       <path value="$PROJECT_DIR$/TranslationBackend/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/TranslationBackend/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/TranslationBackend/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/TranslationBackend/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/TranslationBackend/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/TranslationBackend/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/TranslationBackend/vendor/phpoffice/phpspreadsheet" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

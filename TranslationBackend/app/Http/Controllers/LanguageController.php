@@ -1,16 +1,19 @@
 <?php
 
+
 namespace App\Http\Controllers;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\LanguagesImport;
-use Illuminate\Http\Request;
+use App\Language;
+use Maatwebsite\Excel\HeadingRowImport;
 
 class LanguageController extends Controller
 {
-    public function store() {
-        return ('Hello World!');
-        //Excel::import(new LanguagesImport, 'data.xlsx');
+    public function store(){
+        // import the heading row of Excel sheet to the languages table
+        // listing all the available languages
+        $data = (new HeadingRowImport)->toCollection('data.xlsx')->collapse()->collapse();//->collapse()->toArray('data.xlsx');
+        $language = new Language();
+        $language->store($data);
     }
 
-    
+
 }
