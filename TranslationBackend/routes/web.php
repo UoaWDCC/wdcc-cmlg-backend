@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/translations/{word}', 'WordController@show');
+Route::get('/import', 'ImportController@store');
+// '/translations'
+// '/translations/{word}'
+
+//Potential json file
+// 'english': {
+//     words: {
+//         [
+//             id:1,
+//             name:hi,
+//             translation_id: 1
+//         ]
+//     }
+// }

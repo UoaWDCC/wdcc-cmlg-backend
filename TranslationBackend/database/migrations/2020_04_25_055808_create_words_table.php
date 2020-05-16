@@ -15,11 +15,12 @@ class CreateWordsTable extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('translation_id');
             $table->timestamps();
 
+            $table->unique(['language_id','translation_id']); //TBT
             $table->foreign('language_id')
                 ->references('id')
                 ->on('languages')
