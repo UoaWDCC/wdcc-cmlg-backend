@@ -10,18 +10,26 @@ class Word extends Model
     protected $fillable = ['id', 'name', 'translation_id', 'language_id'];
     public function search($word) {
 
-        // selecting the words related to the search word from the database
+        // select the translation id of the words that contains the search key word
+        $translation = DB::table('words')
+            ->select('translation_id')
+            ->where('words.name', 'like', '%'.$word.'%')
+            ->distinct()
+            ->get();
+
+        $translationArray = $translation->pluck('translation_id');
+
+        // selecting the words with the required translation id
         $data = DB::table('words')
             ->join('languages', 'words.language_id', '=', 'languages.id')
-            ->select(['words.id', 'words.name', 'languages.name AS language_name', 'translation_id'])
-            ->where('words.name', 'like', '%'.$word.'%')
-            ->orderBy('languages.id', 'asc')
+            ->select(['words.name', 'languages.name AS language_name', 'translation_id'])
+            ->whereIn('translation_id', $translationArray)
             ->orderBy('translation_id', 'asc')
+            ->orderBy('language_name', 'asc')
             ->get();
 
         // group the data by language name and return an JSON file
-        return $data->groupBy('language_name')->toJson();
-
+        return $data->toJson();
     }
 
     public function language() {
