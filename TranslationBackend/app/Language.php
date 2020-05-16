@@ -6,7 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Language extends Model
 {
+    protected $fillable = ['id', 'name'];
     public function words() {
         return $this->hasMany(Word::class);
+    }
+    public function store($data){
+        // store entity set in language table
+        foreach($data as $languages){
+            $language = new Language([
+                'name' => $languages
+            ]);
+            $language -> save();
+        }
     }
 }

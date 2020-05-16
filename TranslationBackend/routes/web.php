@@ -18,8 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/translations/{word}', 'WordController@show');
-
-
+Route::get('/import', 'ImportController@store');
 // '/translations'
 // '/translations/{word}'
 

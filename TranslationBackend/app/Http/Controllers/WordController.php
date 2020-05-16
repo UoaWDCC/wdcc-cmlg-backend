@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\WordImport;
 use App\Word;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class WordController extends Controller
 {
+    public function store(){
+        // import all the data from Excel sheet to WordImport
+        Excel::import(new WordImport, 'data.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,17 +34,6 @@ class WordController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Word  $word
@@ -46,7 +41,7 @@ class WordController extends Controller
      */
     public function show(Word $word)
     {
-        
+
     }
 
     /**

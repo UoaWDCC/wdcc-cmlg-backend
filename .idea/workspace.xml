@@ -38,22 +38,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1175df4-3bd1-4259-80d7-5fed530f102f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TranslationBackend/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TranslationBackend/app/Http/Controllers/ImportController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TranslationBackend/app/Http/Controllers/TranslationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TranslationBackend/app/Imports/TranslationImport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TranslationBackend/app/Imports/WordImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WDCC_Covid-19_Multilingual_Glossary_Backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WDCC_Covid-19_Multilingual_Glossary_Backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TranslationBackend/app/Http/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationBackend/app/Http/Controllers/LanguageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TranslationBackend/app/Http/Controllers/WordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationBackend/app/Http/Controllers/WordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TranslationBackend/app/Imports/LanguagesImport.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TranslationBackend/app/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationBackend/app/Language.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TranslationBackend/app/Translation.php" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationBackend/app/Translation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TranslationBackend/app/Word.php" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationBackend/app/Word.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TranslationBackend/app/data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TranslationBackend/database/migrations/2020_04_25_055808_create_words_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationBackend/database/migrations/2020_04_25_055808_create_words_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TranslationBackend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationBackend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,8 +204,20 @@
       <workItem from="1589024185935" duration="957000" />
       <workItem from="1589099707980" duration="865000" />
       <workItem from="1589256467622" duration="8000" />
-      <workItem from="1589511061122" duration="10756000" />
+      <workItem from="1589511061122" duration="12129000" />
+      <workItem from="1589540444898" duration="3290000" />
+      <workItem from="1589543799257" duration="518000" />
+      <workItem from="1589547341738" duration="1733000" />
+      <workItem from="1589590152312" duration="1478000" />
     </task>
+    <task id="LOCAL-00001" summary="import all the data from excel sheet to database">
+      <created>1589525402281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589525402281</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +264,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="import all the data from excel sheet to database" />
+    <option name="LAST_COMMIT_MESSAGE" value="import all the data from excel sheet to database" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587953352797">
@@ -276,25 +280,41 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="569" y="92" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587953649151" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588342304201">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589541605680">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588342304201" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589541605680" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1589541431019">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1589541431019" />
     <state x="421" y="115" key="FileChooserDialogImpl" timestamp="1587783765963">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="421" y="115" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1587783765963" />
+    <state x="0" y="65" key="MergeDialog" timestamp="1589525364670">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1589525364670" />
+    <state x="164" y="276" width="726" height="272" key="MultipleFileMergeDialog" timestamp="1589525383032">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="164" y="276" width="726" height="272" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1589525383032" />
     <state x="863" y="345" key="NewPhpFileDialog" timestamp="1589513701437">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="863" y="345" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1589513701437" />
+    <state x="463" y="109" key="VCS.ChangeListViewerDialog" timestamp="1589544206723">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="463" y="109" key="VCS.ChangeListViewerDialog/0.0.1536.824@0.0.1536.824" timestamp="1589544206723" />
     <state x="297" y="181" key="run.anything.popup" timestamp="1588388575018">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="297" y="181" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1588388575018" />
-    <state x="747" y="172" width="672" height="678" key="search.everywhere.popup" timestamp="1589511120014">
+    <state x="747" y="172" width="672" height="678" key="search.everywhere.popup" timestamp="1589542365061">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="747" y="172" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589511120014" />
+    <state x="747" y="172" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589542365061" />
   </component>
 </project>
