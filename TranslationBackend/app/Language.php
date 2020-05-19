@@ -12,11 +12,14 @@ class Language extends Model
     }
     public function store($data){
         // store entity set in language table
+        $id = 1;
         foreach($data as $languages){
             $language = new Language([
+                'id' => $id,
                 'name' => $languages
             ]);
             $language -> save();
+            $id++;
         }
     }
 }
