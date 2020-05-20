@@ -15,23 +15,24 @@ class WordImport implements ToCollection
         $rows = $rows->toArray();
 
         // store entity set in words table
-        // the index of row number is same as translation id
-        // the index of column number is same as language id
-        for($i = 1; $i <= count($rows) - 1; $i++){
+        foreach ($rows as $rowId => $row) {
+            if($rowId == 0) {
+                // the first row is the header
+                continue;
+            }
 
-            // check this row contains values
-            $row = $rows[$i];
+            // check this row contains value
             $filteredRow = array_filter($row, function ($value) { return $value !== null; });
 
-            if($filteredRow) {
+            if ($filteredRow) {
 
-                for($j = 0; $j < count($row); $j++){
+                foreach ($row as $columnId => $word) {
 
                     $word = new Word([
                         'id' => $wordIndex,
-                        'name' =>$row[$j],
-                        'language_id' => $j + 1,
-                        'translation_id' => $i,
+                        'name' => $word,
+                        'language_id' => $columnId + 1,
+                        'translation_id' => $rowId,
                     ]);
 
                     $word->save();
