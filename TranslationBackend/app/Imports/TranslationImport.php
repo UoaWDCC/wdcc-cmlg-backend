@@ -23,7 +23,7 @@ class TranslationImport implements OnEachRow, WithHeadingRow
         if ($row) {
             $translation = new Translation([
                 'id' => $rowIndex,
-                'name' => $row['en_english'] ?? $row['cn']
+                'name' => $row['en_english'] ?? $row['zh_cn']
             ]);
             $translation->save();
         }
