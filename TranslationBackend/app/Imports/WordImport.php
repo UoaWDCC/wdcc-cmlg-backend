@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Imports;
+use App\Language;
+use App\Translation;
 use App\Word;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
@@ -9,17 +11,34 @@ class WordImport implements ToCollection
 {
     public function collection(Collection $rows)
     {
+        $wordIndex = 1;
+        $rows = $rows->toArray();
+
         // store entity set in words table
-        // the index of row number is same as translation id
-        // the index of column number is same as language id
-        for($i = 1; $i <= count($rows) - 1; $i ++){
-            for($j = 1; $j <= count($rows[$i]); $j ++){
-                $word = new Word([
-                    'name' =>$rows[$i][$j - 1],
-                    'language_id' => $j,
-                    'translation_id' => $i,
-                ]);
-                $word->save();
+        foreach ($rows as $rowId => $row) {
+            if($rowId == 0) {
+                // the first row is the header
+                continue;
+            }
+
+            // check this row contains value
+            $filteredRow = array_filter($row, function ($value) { return $value !== null; });
+
+            if ($filteredRow) {
+
+                foreach ($row as $columnId => $word) {
+
+                    $word = new Word([
+                        'id' => $wordIndex,
+                        'name' => $word,
+                        'language_id' => $columnId + 1,
+                        'translation_id' => $rowId,
+                    ]);
+
+                    $word->save();
+
+                    $wordIndex++;
+                }
             }
         }
     }
