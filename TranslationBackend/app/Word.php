@@ -3,18 +3,33 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Word extends Model
 {
     protected $fillable = ['id', 'name', 'translation_id', 'language_id'];
     public function search($word) {
 
-        //$data => Word::with('languages')->select()->where();
+        // select the translation id of the words that contains the search key word
+        $translation = DB::table('words')
+            ->select('translation_id')
+            ->where('words.name', 'like', '%'.$word.'%')
+            ->distinct()
+            ->get();
 
-        // SELECT languages.name AS language,words.name AS word,translation_id
-        // FROM words JOIN languages
-        // WHERE words.name LIKE '%lo%'
-        // ORDER BY languages.id, translation_id;
+        $translationArray = $translation->pluck('translation_id');
+
+        // selecting the words with the required translation id
+        $data = DB::table('words')
+            ->join('languages', 'words.language_id', '=', 'languages.id')
+            ->select(['words.name', 'languages.name AS language_name', 'translation_id'])
+            ->whereIn('translation_id', $translationArray)
+            ->orderBy('translation_id', 'asc')
+            ->orderBy('language_name', 'asc')
+            ->get();
+
+        // group the data by language name and return an JSON file
+        return $data->toJson();
     }
 
     public function language() {
