@@ -17,21 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/translations/{word?}', 'WordController@show'); 
+Route::get('/translations/{word?}', 'WordController@show');
 
-// route below is only used to set up the database, this shouldn't be exposed to the public 
+// route below is only used to set up the database, this shouldn't be exposed to the public
 //Route::get('/import', 'ImportController@store');
 
-// '/translations'
-// '/translations/{word}'
-
-//Potential json file
-// 'english': {
-//     words: {
-//         [
-//             id:1,
-//             name:hi,
-//             translation_id: 1
-//         ]
-//     }
-// }
