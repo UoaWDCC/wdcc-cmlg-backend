@@ -76,36 +76,31 @@ class WordTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                     [
-                        "id" => "3",
-                        "name" => "novel coronavirus",
-                        "language_name" => "EN English",
-                        "translation_id" => "1"
-                    ],
-                    [
-                        "id" => "1",
                         "name" => "病毒",
                         "language_name" => "ZH CN",
                         "translation_id" => "1"
                     ],
                     [
-                        "id" => "2",
                         "name" => "bìngdú",
                         "language_name" => "pinyin",
                         "translation_id" => "1"
                     ],
                     [
-                        "id" => "4",
+                        "name" => "novel coronavirus",
+                        "language_name" => "EN English",
+                        "translation_id" => "2"
+                    ],
+                    [
                         'name' => 'xīnxíng guānzhuàng bìngdú (xīnguān bìngdú)',
                         "language_name" => "pinyin",
                         "translation_id" => "2"
                     ],
                     [
-                        "id" => "5",
                         'name' => 'fèiyán',
                         "language_name" => "pinyin",
                         "translation_id" => "3"
                     ]
-            ]);
+                ]);
     }
 
 
