@@ -67,13 +67,57 @@ class WordTest extends TestCase
             ]);
     }
 
-    // @todo testing the /translation endpoint
+    // testing the /translation endpoint
+    public function testEmptySearch()
+    {
+        $response = $this->get('/translations');
 
-    // @todo test that two words with same languages are grouped together
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                    [
+                        "id" => "3",
+                        "name" => "novel coronavirus",
+                        "language_name" => "EN English",
+                        "translation_id" => "1"
+                    ],
+                    [
+                        "id" => "1",
+                        "name" => "病毒",
+                        "language_name" => "ZH CN",
+                        "translation_id" => "1"
+                    ],
+                    [
+                        "id" => "2",
+                        "name" => "bìngdú",
+                        "language_name" => "pinyin",
+                        "translation_id" => "1"
+                    ],
+                    [
+                        "id" => "4",
+                        'name' => 'xīnxíng guānzhuàng bìngdú (xīnguān bìngdú)',
+                        "language_name" => "pinyin",
+                        "translation_id" => "2"
+                    ],
+                    [
+                        "id" => "5",
+                        'name' => 'fèiyán',
+                        "language_name" => "pinyin",
+                        "translation_id" => "3"
+                    ]
+            ]);
+    }
 
-    // @todo test that two words with same translation id but different languages are not grouped together
 
-    // @todo test that when users search for non-exist words, empty result is returned
+    //test that when users search for non-exist words, empty result is returned
+    public function testNoResults()
+    {
+        $response = $this->get('/translations/abcdef');
+
+        $response
+            ->assertStatus(200) //might change status code
+            ->assertJson([]);
+    }
 
     public function setUp() : void
     {
