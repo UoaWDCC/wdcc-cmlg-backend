@@ -110,7 +110,7 @@ class WordTest extends TestCase
         $response = $this->get('/translations/abcdef');
 
         $response
-            ->assertStatus(200) //might change status code
+            ->assertStatus(200) // @todo might change status code
             ->assertJson([]);
     }
 
