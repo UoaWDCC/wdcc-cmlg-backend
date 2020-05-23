@@ -22,13 +22,13 @@ class Word extends Model
         // selecting the words with the required translation id
         $data = DB::table('words')
             ->join('languages', 'words.language_id', '=', 'languages.id')
-            ->select(['words.name', 'languages.name AS language_name', 'translation_id'])
+            ->select(['words.name', 'languages.id AS language_id', 'languages.name AS language_name', 'translation_id'])
             ->whereIn('translation_id', $translationArray)
             ->orderBy('translation_id', 'asc')
-            ->orderBy('language_name', 'asc')
+            ->orderBy('language_id', 'asc')
             ->get();
 
-        // group the data by language name and return an JSON file
+        // Return an JSON file
         return $data->toJson();
     }
 

@@ -26,11 +26,13 @@ class WordTest extends TestCase
             ->assertJson([
                 [
                     "name" => "病毒",
+                    "language_id" => "2",
                     "language_name" => "ZH CN",
                     "translation_id" => "1"
                 ],
                 [
                     "name" => "bìngdú",
+                    "language_id" => "3",
                     "language_name" => "pinyin",
                     "translation_id" => "1"
                 ]
@@ -46,21 +48,25 @@ class WordTest extends TestCase
             ->assertJson([
                 [
                     "name" => "病毒",
+                    "language_id" => "2",
                     "language_name" => "ZH CN",
                     "translation_id" => "1"
                 ],
                 [
                     "name" => "bìngdú",
+                    "language_id" => "3",
                     "language_name" => "pinyin",
                     "translation_id" => "1"
                 ],
                 [
                     "name" => "novel coronavirus",
+                    "language_id" => "1",
                     "language_name" => "EN English",
                     "translation_id" => "2"
                 ],
                 [
                     "name" => "xīnxíng guānzhuàng bìngdú (xīnguān bìngdú)",
+                    "language_id" => "3",
                     "language_name" => "pinyin",
                     "translation_id" => "2"
                 ]
@@ -77,26 +83,31 @@ class WordTest extends TestCase
             ->assertJson([
                     [
                         "name" => "病毒",
+                        "language_id" => "2",
                         "language_name" => "ZH CN",
                         "translation_id" => "1"
                     ],
                     [
                         "name" => "bìngdú",
+                        "language_id" => "3",
                         "language_name" => "pinyin",
                         "translation_id" => "1"
                     ],
                     [
                         "name" => "novel coronavirus",
+                        "language_id" => "1",
                         "language_name" => "EN English",
                         "translation_id" => "2"
                     ],
                     [
                         'name' => 'xīnxíng guānzhuàng bìngdú (xīnguān bìngdú)',
+                        "language_id" => "3",
                         "language_name" => "pinyin",
                         "translation_id" => "2"
                     ],
                     [
                         'name' => 'fèiyán',
+                        "language_id" => "3",
                         "language_name" => "pinyin",
                         "translation_id" => "3"
                     ]
