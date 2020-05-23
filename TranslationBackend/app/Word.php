@@ -28,7 +28,7 @@ class Word extends Model
             ->orderBy('language_id', 'asc')
             ->get();
 
-        // group the data by language name and return an JSON file
+        // Return an JSON file
         return $data->toJson();
     }
 
