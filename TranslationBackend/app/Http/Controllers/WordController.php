@@ -37,11 +37,12 @@ class WordController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Word  $word
-     * @return \Illuminate\Http\Response
+     * @return json file containing result of search
      */
-    public function show(Word $word)
+    public function show($word = null)
     {
-
+        $words = new Word();
+        return $words->search($word);
     }
 
     /**
