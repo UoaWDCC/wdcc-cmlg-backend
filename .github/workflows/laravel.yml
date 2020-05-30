@@ -2,9 +2,9 @@ name: Laravel
 
 on:
   push:
-    branches: [ master ]
+    branches: [ CMLG-012/Adding-CI-to-the-backend-project ]
   pull_request:
-    branches: [ master ]
+    branches: [ CMLG-012/Adding-CI-to-the-backend-project ]
 
 jobs:
   laravel-tests:
