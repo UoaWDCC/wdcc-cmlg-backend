@@ -14,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Change directory
-      run: cd TranslationBackend 
+      run: |
+        cd TranslationBackend 
+        ls -l 
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
     - name: Install Dependencies
