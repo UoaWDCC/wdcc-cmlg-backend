@@ -13,7 +13,7 @@ class WordTest extends TestCase
 {
     use RefreshDatabase;
     /**
-     * A basic feature test example.
+     * Testing the search function is working correctly and a json file is returned.
      *
      * @return void
      */
