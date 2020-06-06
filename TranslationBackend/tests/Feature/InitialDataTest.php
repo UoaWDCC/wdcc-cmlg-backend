@@ -11,7 +11,7 @@ class InitialDataTest extends TestCase
 {
     use DatabaseMigrations;
     /**
-     * A basic feature test example.
+     * Testing all the data are imported from excel sheet into database correctly.
      *
      * @return void
      */
