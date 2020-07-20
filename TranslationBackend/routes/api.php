@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//route is prepended with /api/ prefix
+Route::get('/translations/{word?}', 'WordController@show');
+
+// route below is only used to set up the database, this shouldn't be exposed to the public
+//Route::get('/import', 'ImportController@store');
+
