@@ -12,10 +12,14 @@ class Word extends Model
 
         // select the translation id of the words that contains the search key word
         $translation = DB::table('words')
-            ->select('translation_id')
-            ->where('words.name', 'like', '%'.$word.'%')
-            ->distinct()
-            ->get();
+        ->select('translation_id')
+        ->where('words.name', 'like', '%'.$word.'%')
+        ->distinct()
+        ->get();
+       
+        if ($word == null) {
+            $translation = $translation->take(10); 
+        }        
 
         $translationArray = $translation->pluck('translation_id');
 
@@ -28,8 +32,8 @@ class Word extends Model
             ->orderBy('language_id', 'asc')
             ->get();
 
-        // Return an JSON file
-        return $data->toJson();
+        // Return results as a collection
+        return $data;
     }
 
     public function language() {
