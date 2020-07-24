@@ -39,15 +39,19 @@ class WordController extends Controller
      * @param  \App\Word  $word
      * @return json file containing result of search
      */
-    public function show($word = null)
+    public function show()
     {
         if ( request()->has( 'sequence' )) {
             $sequence = request()->sequence;
+            $word = null;
+            if ( request()->has( 'word' )) {
+                $word = request()->word;
+            }
             $words = new Word();
             $data = $words->search($word);
             return json_encode(['sequence' => $sequence, 'data' => $data]);
         } else {
-            // this scenario shouldn't really be happening
+            // @todo this scenario shouldn't really be happening
         }
     }
 
