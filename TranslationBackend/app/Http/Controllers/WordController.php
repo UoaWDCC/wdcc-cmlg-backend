@@ -41,18 +41,16 @@ class WordController extends Controller
      */
     public function show()
     {
-        if ( request()->has( 'sequence' )) {
+        if ( request()->has( 'sequence' ) ) {
             $sequence = request()->sequence;
             $word = null;
-            if ( request()->has( 'word' )) {
+            if ( request()->has( 'word' ) ) {
                 $word = request()->word;
             }
             $words = new Word();
             $data = $words->search($word);
             return json_encode(['sequence' => $sequence, 'data' => $data]);
-        } else {
-            // @todo this scenario shouldn't really be happening
-        }
+        } 
     }
 
     /**

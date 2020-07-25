@@ -136,14 +136,6 @@ class WordTest extends TestCase
                 "data" => []
             ]);
     }
-    
-    //test that when no sequence number is given with request
-    public function testNoSequence()
-    {
-        $response = $this->get('/api/translations?');
-
-        $response->assertStatus(200); // @todo need to implement the expected result
-    }
 
     public function setUp() : void
     {
