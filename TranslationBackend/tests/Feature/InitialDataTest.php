@@ -17,28 +17,28 @@ class InitialDataTest extends TestCase
      */
     public function testExcelFileExistence()
     {
-        $response = $this->get('/import');
+        $response = $this->get('/api/import');
         $response->assertStatus(200);
         $this->assertFileExists('storage/app/data.xlsx');
     }
 
     public function testLanguagesTable()
     {
-        $response = $this->get('/import');
+        $response = $this->get('/api/import');
         $response->assertStatus(200);
         $this->assertEquals(18, DB::table('languages')->count());
     }
 
     public function testTranslationsTable()
     {
-        $response = $this->get('/import');
+        $response = $this->get('/api/import');
         $response->assertStatus(200);
         $this->assertEquals(113, DB::table('translations')->count());
     }
 
     public function testWordsTable()
     {
-        $response = $this->get('/import');
+        $response = $this->get('/api/import');
         $response->assertStatus(200);
         $this -> assertDatabaseHas('words', [
             'name' => '含氯消毒液',

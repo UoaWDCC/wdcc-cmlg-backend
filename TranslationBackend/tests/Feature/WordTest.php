@@ -13,62 +13,68 @@ class WordTest extends TestCase
 {
     use RefreshDatabase;
     /**
-     * Testing the search function is working correctly and a json file is returned.
+     * Testing the search function is working correctly for typed chinese characters and a json file is returned.
      *
      * @return void
      */
     public function testChinese()
     {
-        $response = $this->get('/translations/病毒');
+        $response = $this->get('/api/translations?sequence=1&word=病毒');
 
         $response
             ->assertStatus(200)
             ->assertJson([
-                [
-                    "name" => "病毒",
-                    "language_id" => "2",
-                    "language_name" => "ZH CN",
-                    "translation_id" => "1"
-                ],
-                [
-                    "name" => "bìngdú",
-                    "language_id" => "3",
-                    "language_name" => "pinyin",
-                    "translation_id" => "1"
+                "sequence" => "1",
+                "data" => [
+                    [
+                        "name" => "病毒",
+                        "language_id" => "2",
+                        "language_name" => "ZH CN",
+                        "translation_id" => "1"
+                    ],
+                    [
+                        "name" => "bìngdú",
+                        "language_id" => "3",
+                        "language_name" => "pinyin",
+                        "translation_id" => "1"
+                    ]
                 ]
             ]);
     }
 
     public function testAccent()
     {
-        $response = $this->get('/translations/bìngdú');
+        $response = $this->get('/api/translations?sequence=2&word=bìngdú');
 
         $response
             ->assertStatus(200)
             ->assertJson([
-                [
-                    "name" => "病毒",
-                    "language_id" => "2",
-                    "language_name" => "ZH CN",
-                    "translation_id" => "1"
-                ],
-                [
-                    "name" => "bìngdú",
-                    "language_id" => "3",
-                    "language_name" => "pinyin",
-                    "translation_id" => "1"
-                ],
-                [
-                    "name" => "novel coronavirus",
-                    "language_id" => "1",
-                    "language_name" => "EN English",
-                    "translation_id" => "2"
-                ],
-                [
-                    "name" => "xīnxíng guānzhuàng bìngdú (xīnguān bìngdú)",
-                    "language_id" => "3",
-                    "language_name" => "pinyin",
-                    "translation_id" => "2"
+                "sequence" => "2",
+                "data" => [
+                    [
+                        "name" => "病毒",
+                        "language_id" => "2",
+                        "language_name" => "ZH CN",
+                        "translation_id" => "1"
+                    ],
+                    [
+                        "name" => "bìngdú",
+                        "language_id" => "3",
+                        "language_name" => "pinyin",
+                        "translation_id" => "1"
+                    ],
+                    [
+                        "name" => "novel coronavirus",
+                        "language_id" => "1",
+                        "language_name" => "EN English",
+                        "translation_id" => "2"
+                    ],
+                    [
+                        "name" => "xīnxíng guānzhuàng bìngdú (xīnguān bìngdú)",
+                        "language_id" => "3",
+                        "language_name" => "pinyin",
+                        "translation_id" => "2"
+                    ]
                 ]
             ]);
     }
@@ -76,11 +82,13 @@ class WordTest extends TestCase
     // testing the /translation endpoint
     public function testEmptySearch()
     {
-        $response = $this->get('/translations');
+        $response = $this->get('/api/translations?sequence=3');
 
         $response
             ->assertStatus(200)
             ->assertJson([
+                "sequence" => "3",
+                "data" => [
                     [
                         "name" => "病毒",
                         "language_id" => "2",
@@ -111,6 +119,7 @@ class WordTest extends TestCase
                         "language_name" => "pinyin",
                         "translation_id" => "3"
                     ]
+                ]
                 ]);
     }
 
@@ -118,11 +127,14 @@ class WordTest extends TestCase
     //test that when users search for non-exist words, empty result is returned
     public function testNoResults()
     {
-        $response = $this->get('/translations/abcdef');
+        $response = $this->get('/api/translations?sequence=4&word=abcdef');
 
         $response
             ->assertStatus(200) // @todo might change status code
-            ->assertJson([]);
+            ->assertJson([
+                "sequence" => "4",
+                "data" => []
+            ]);
     }
 
     public function setUp() : void
