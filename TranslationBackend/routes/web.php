@@ -16,9 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/translations/{word?}', 'WordController@show');
-
-// route below is only used to set up the database, this shouldn't be exposed to the public
-//Route::get('/import', 'ImportController@store');
-

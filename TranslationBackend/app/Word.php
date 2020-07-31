@@ -16,6 +16,10 @@ class Word extends Model
             ->where('words.name', 'like', '%'.$word.'%')
             ->distinct()
             ->get();
+       
+        if ($word == null) {
+            $translation = $translation->take(10); 
+        }        
 
         $translationArray = $translation->pluck('translation_id');
 
@@ -28,8 +32,8 @@ class Word extends Model
             ->orderBy('language_id', 'asc')
             ->get();
 
-        // Return an JSON file
-        return $data->toJson();
+        // Return results as a collection
+        return $data;
     }
 
     public function language() {
