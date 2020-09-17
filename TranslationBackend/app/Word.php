@@ -17,12 +17,13 @@ class Word extends Model
             ->distinct()
             ->get();
 
-        if($pageRows == 'all' ){
+         $wordCount = $allTranslations ->count();
+         $totalPage = $wordCount / $pageRows;
+
+        if( $pageRows == 'all' ){
             $translation = $allTranslations;
-        }else{
-            // the first take gets the data from 1 up to $pageNum * $pageRows
-            // the second data gets the last $pageRows data
-            $translation = $allTranslations -> take($pageNum * $pageRows) -> take(-$pageRows);
+        } else {
+            $translation = $allTranslations ->skip(($pageNum - 1) * $pageRows) ->take($pageRows);
         }
 
         $translationArray = $translation->pluck('translation_id');
@@ -37,7 +38,7 @@ class Word extends Model
             ->get();
 
         // Return results as a collection
-        return $data;
+        return array('data' => $data, 'totalPageNum' => $totalPage);
     }
 
     public function language() {
