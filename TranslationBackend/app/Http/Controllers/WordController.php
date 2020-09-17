@@ -44,14 +44,21 @@ class WordController extends Controller
         if ( request()->has( 'sequence' ) ) {
             $sequence = request()->sequence;
             $word = null;
+
             if ( request()->has( 'word' ) ) {
                 $word = request()->word;
             }
+            $pageNum = null; //show all rows at once
+            if(request() -> has( 'pageNum')) {
+                $pageNum = request()->pageNum;
+            }
             $words = new Word();
-            $data = $words->search($word);
+            $data = $words->search($word, $pageNum);
             return json_encode(['sequence' => $sequence, 'data' => $data]);
-        } 
+        }
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

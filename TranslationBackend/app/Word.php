@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Word extends Model
 {
     protected $fillable = ['id', 'name', 'translation_id', 'language_id'];
-    public function search($word) {
+    public function search($word, $pageNum) {
 
         // select the translation id of the words that contains the search key word
         $translation = DB::table('words')
@@ -16,10 +16,10 @@ class Word extends Model
             ->where('words.name', 'like', '%'.$word.'%')
             ->distinct()
             ->get();
-       
-        if ($word == null) {
-            $translation = $translation->take(10); 
-        }        
+
+        if ($word == null && $pageNum != null) { //show the tables by pages
+            $translation = $translation->paginate(10);
+        }
 
         $translationArray = $translation->pluck('translation_id');
 
