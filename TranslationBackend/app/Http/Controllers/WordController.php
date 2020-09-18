@@ -63,7 +63,7 @@ class WordController extends Controller
 
             $words = new Word();
             $data = $words->search($word, $pageNum, $pageRows);
-            return json_encode(['sequence' => $sequence, 'data' => $data]);
+            return json_encode(['sequence' => $sequence, 'data' => $data['data'], 'totalPageNum' => $data['totalPageNum'] ]);
         }
     }
 
