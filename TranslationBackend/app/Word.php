@@ -17,12 +17,12 @@ class Word extends Model
             ->distinct()
             ->get();
 
-         $wordCount = $allTranslations ->count();
-         $totalPage = $wordCount / $pageRows;
-
-        if( $pageRows == 'all' ){
+        if( $pageRows == 'all'){
             $translation = $allTranslations;
+            $totalPage = 1;
         } else {
+            $wordCount = $allTranslations ->count();
+            $totalPage = ceil($wordCount / $pageRows);
             $translation = $allTranslations ->skip(($pageNum - 1) * $pageRows) ->take($pageRows);
         }
 
