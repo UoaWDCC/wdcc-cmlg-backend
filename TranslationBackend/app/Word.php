@@ -8,18 +8,23 @@ use Illuminate\Support\Facades\DB;
 class Word extends Model
 {
     protected $fillable = ['id', 'name', 'translation_id', 'language_id'];
-    public function search($word) {
+    public function search($word, $pageNum, $pageRows) {
 
         // select the translation id of the words that contains the search key word
-        $translation = DB::table('words')
+        $allTranslations = DB::table('words')
             ->select('translation_id')
             ->where('words.name', 'like', '%'.$word.'%')
             ->distinct()
             ->get();
-       
-        if ($word == null) {
-            $translation = $translation->take(10); 
-        }        
+
+        if( $pageRows == 'all'){
+            $translation = $allTranslations;
+            $totalPage = 1;
+        } else {
+            $wordCount = $allTranslations ->count();
+            $totalPage = ceil($wordCount / $pageRows);
+            $translation = $allTranslations ->skip(($pageNum - 1) * $pageRows) ->take($pageRows);
+        }
 
         $translationArray = $translation->pluck('translation_id');
 
@@ -33,7 +38,7 @@ class Word extends Model
             ->get();
 
         // Return results as a collection
-        return $data;
+        return array('data' => $data, 'totalPageNum' => $totalPage);
     }
 
     public function language() {

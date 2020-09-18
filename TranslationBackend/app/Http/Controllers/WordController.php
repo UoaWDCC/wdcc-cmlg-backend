@@ -44,14 +44,30 @@ class WordController extends Controller
         if ( request()->has( 'sequence' ) ) {
             $sequence = request()->sequence;
             $word = null;
+
             if ( request()->has( 'word' ) ) {
                 $word = request()->word;
             }
+
+            // default page number is 1
+            $pageNum = 1;
+            if(request() -> has( 'pageNum')) {
+                $pageNum = request()->pageNum;
+            }
+
+            // default rows in a page is 10
+            $pageRows = 10;
+            if(request() -> has( 'pageRows')) {
+                $pageRows = request()->pageRows;
+            }
+
             $words = new Word();
-            $data = $words->search($word);
-            return json_encode(['sequence' => $sequence, 'data' => $data]);
-        } 
+            $data = $words->search($word, $pageNum, $pageRows);
+            return json_encode(['sequence' => $sequence, 'data' => $data['data'], 'totalPageNum' => $data['totalPageNum'] ]);
+        }
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
