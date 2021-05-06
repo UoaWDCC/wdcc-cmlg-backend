@@ -7,9 +7,9 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class TranslationController extends Controller
 {
-    public function store(){
+    public function store($path){
         // import all the data from Excel sheet to TranslationImport
-        Excel::import(new TranslationImport, 'data.xlsx');
+        Excel::import(new TranslationImport, $path);
     }
 
 }
