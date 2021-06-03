@@ -22,5 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //route is prepended with /api/ prefix
 Route::get('/translations', 'WordController@show');
 
-Route::get('/uploadfile','UploadDataController@index');
-Route::post('/uploadfile','UploadDataController@showUploadFile');
+//get "/uploadfile" route is for testing
+//Route::get('/uploadfile','UploadDataController@index');
+Route::post('/uploadfile','UploadDataController@storeUploadFile');
