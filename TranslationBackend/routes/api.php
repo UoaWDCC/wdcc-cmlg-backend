@@ -25,3 +25,4 @@ Route::get('/translations', 'WordController@show');
 //get "/uploadfile" route is for testing
 //Route::get('/uploadfile','UploadDataController@index');
 Route::post('/uploadfile','UploadDataController@storeUploadFile');
+
