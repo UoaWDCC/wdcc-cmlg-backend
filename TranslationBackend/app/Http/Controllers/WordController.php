@@ -9,9 +9,9 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class WordController extends Controller
 {
-    public function store(){
+    public function store($path){
         // import all the data from Excel sheet to WordImport
-        Excel::import(new WordImport, 'data.xlsx');
+        Excel::import(new WordImport, $path);
     }
     /**
      * Display a listing of the resource.
