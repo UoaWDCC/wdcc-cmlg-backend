@@ -18,7 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 //route is prepended with /api/ prefix
 Route::get('/translations', 'WordController@show');
 
