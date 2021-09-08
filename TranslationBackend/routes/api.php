@@ -26,3 +26,7 @@ Route::get('/translations', 'WordController@show');
 //Route::get('/uploadfile','UploadDataController@index');
 Route::post('/uploadfile','UploadDataController@storeUploadFile');
 
+Route::get('/login','UserController@verifyUsers');
+
+
+
