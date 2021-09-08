@@ -9,11 +9,16 @@
 
 ## To run this project 
 
-- Follow the Laravel install guide to get required apps downloaded. 
-- Clone the github repository and cd into the Laravel folder. 
-- Run `composer install` to install all the required dependencies.
-- Go into the laravel folder and find the file called .env.example, copy and paste it under the same folder, change the name to .env
+- Follow the Laravel install guide to get required apps downloaded.
+- Clone the GitHub repository.
+- Run `composer install` to install all the required dependencies.
+- In the cloned GitHub repository on your local drive, find the file called .env.example
+- Copy and paste it under the same folder and change the name to .env
 - Run `php artisan key:generate`
+  * Make sure your php version is 7.2 or 7.3.
+  * If your php version is higher, downgrade.
+    (On Mac, you can upgrade/downgrade by : `brew unlink php@X.Y` then `brew link php@7.2` where php@X.Y is your current php version.)
+  * You can check your php version through php -v or brew search php)
 - Run `php artisan serve`
 
 ## About Laravel
