@@ -13,9 +13,8 @@ class UploadDataController extends Controller
     }
     public function storeUploadFile(Request $request) {
         $file = $request->file('spreadsheet');
-        $filename = $file->getClientOriginalName();
-        Storage::disk('local')->putFileAs('',$file,$filename);
-        (new ImportController)->store($filename);
+        Storage::disk('local')->putFileAs('',$file,'data.xlsx');
+        (new ImportController)->store('data.xlsx');
         return response('',201);
     }
 }
